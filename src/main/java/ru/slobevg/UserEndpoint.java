@@ -19,13 +19,13 @@ public class UserEndpoint {
 	public UserEndpoint(UserService userService) throws JDOMException {
 		this.userService = userService;
 		
-		Namespace namespace = Namespace.getNamespace("", "http://slobevg.ru/user/schemas");
+		Namespace namespace = Namespace.getNamespace("http://ru.slobevg/schemas");
 		nameExpression = XPath.newInstance("//name");
 		nameExpression.addNamespace(namespace);
 	}
 	
-	@PayloadRoot(namespace = "http://slobevg.ru/user/schemas", localPart = "UserRequest")
-	public String handleUserRequest(@RequestPayload Element userRequest) throws JDOMException {
-		return userService.reverse(nameExpression.valueOf(userRequest));
+	@PayloadRoot(namespace = "http://slobevg.ru/user/schemas", localPart = "user")
+	public String handleUser(@RequestPayload Element user) throws JDOMException {
+		return userService.reverse(nameExpression.valueOf(user));
 	}
 }

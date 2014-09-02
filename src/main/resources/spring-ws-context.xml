@@ -10,7 +10,7 @@
 
 	<sws:annotation-driven />
 	<sws:dynamic-wsdl id="user" portTypeName="UserResource"
-		locationUri="/userService/" targetNamespace="http://slobevg.ru/user/definitions">
-		<sws:xsd location="/WEB-INF/UserXMLSchema.xsd" />
+		locationUri="/user-service/" targetNamespace="http://ru.slobevg/definitions">
+		<sws:xsd location="/WEB-INF/user-schema.xsd" />
 	</sws:dynamic-wsdl>
 </beans>
