@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.slobevg</groupId>
-	<artifactId>jaxbexample</artifactId>
+	<artifactId>springws</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
