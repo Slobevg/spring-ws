@@ -75,7 +75,7 @@
 
 					<configuration>
 						<warName>spring-ws</warName>
-						<webappDirectory>/home/eslobodskoy/dev/apache-tomcat-6.0.41/webapps/spring-ws</webappDirectory>
+						<webappDirectory>/home/eslobodskoy/dev/apache-tomcat-7.0.55/webapps/spring-ws</webappDirectory>
 					</configuration>
 				</plugin>
 			</plugins>
