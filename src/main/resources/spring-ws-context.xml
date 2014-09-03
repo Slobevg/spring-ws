@@ -9,8 +9,15 @@
 	<context:component-scan base-package="ru.slobevg" />
 
 	<sws:annotation-driven />
+
+	<!-- dynamic wsdl -->
 	<sws:dynamic-wsdl id="user" portTypeName="UserResource"
-		locationUri="/user-service/" targetNamespace="http://ru.slobevg/definitions">
+		locationUri="/" targetNamespace="http://ru.slobevg/definitions">
 		<sws:xsd location="/WEB-INF/user-schema.xsd" />
 	</sws:dynamic-wsdl>
+
+	<!-- static wsdl -->
+	<!-- <bean id="user" class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
+		<constructor-arg value="WEB-INF/wsdl/user.wsdl" />
+	</bean> -->
 </beans>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:sch="http://ru.slobevg/schemas"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ru.slobevg/definitions"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ru.slobevg/definitions">
+	<wsdl:types>
+		<xs:schema xmlns="http://ru.slobevg/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://ru.slobevg/schemas" version="1.0">
+
+			<xs:element name="user" type="user" />
+
+			<xs:complexType name="user">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="name" type="xs:string" />
+				</xs:sequence>
+				<xs:attribute name="id" type="xs:long" use="required" />
+			</xs:complexType>
+
+			<xs:element name="response" type="response" />
+
+			<xs:complexType name="response">
+				<xs:attribute name="name" type="xs:string" use="required" />
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:portType name="UserResource">
+	</wsdl:portType>
+	<wsdl:binding name="UserResourceSoap11" type="tns:UserResource">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+	</wsdl:binding>
+	<wsdl:service name="UserResourceService">
+		<wsdl:port binding="tns:UserResourceSoap11" name="UserResourceSoap11">
+			<soap:address location="http://localhost:8080/spring-ws/user-service/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
