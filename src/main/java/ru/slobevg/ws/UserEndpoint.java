@@ -1,4 +1,4 @@
-package ru.slobevg;
+package ru.slobevg.ws;
 
 import org.jdom2.Element;
 import org.jdom2.JDOMException;

@@ -1,4 +1,4 @@
-package ru.slobevg;
+package ru.slobevg.ws;
 
 import org.springframework.stereotype.Service;
 

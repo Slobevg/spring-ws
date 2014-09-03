@@ -8,5 +8,4 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @ComponentScan(basePackages = {"ru.slobevg.web.controller"})
 public class WebConfig {
-
 }
