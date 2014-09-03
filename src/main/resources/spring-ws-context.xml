@@ -10,17 +10,16 @@
 
 	<sws:annotation-driven />
 
-	<!-- dynamic wsdl -->
-<!--
-	<sws:dynamic-wsdl id="user" portTypeName="UserResource"
+	<!-- 
+		dynamic wsdl 
+		use it to generate wsdl and download in browser
+	-->
+	<!-- <sws:dynamic-wsdl id="user" portTypeName="UserResource"
 		locationUri="/" targetNamespace="http://ru.slobevg/definitions">
 		<sws:xsd location="/WEB-INF/xsd/user.xsd" />
-	</sws:dynamic-wsdl>
--->
+	</sws:dynamic-wsdl> -->
 	
-	<!-- static wsdl --> 
-	<bean id="user" class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
-		<constructor-arg value="WEB-INF/wsdl/user.wsdl" />
-	</bean> 
+	<!-- static wsdl -->
+	<sws:static-wsdl id="user" location="WEB-INF/wsdl/user.wsdl"/> 
 	
 </beans>
