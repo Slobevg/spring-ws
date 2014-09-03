@@ -1,31 +1,32 @@
 package ru.slobevg;
 
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.Namespace;
-import org.jdom.xpath.XPath;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
+import ru.slobevg.model.Response;
 
 @Endpoint
 public class UserEndpoint {
 
+	private static final String namespaceUri = "http://ru.slobevg/schemas";
+	
 	private UserService userService;
-	private XPath nameExpression;
 	
 	@Autowired
 	public UserEndpoint(UserService userService) throws JDOMException {
 		this.userService = userService;
-		
-		Namespace namespace = Namespace.getNamespace("http://ru.slobevg/schemas");
-		nameExpression = XPath.newInstance("//name");
-		nameExpression.addNamespace(namespace);
 	}
 	
-	@PayloadRoot(namespace = "http://slobevg.ru/user/schemas", localPart = "user")
-	public String handleUser(@RequestPayload Element user) throws JDOMException {
-		return userService.reverse(nameExpression.valueOf(user));
+	@PayloadRoot(namespace = namespaceUri, localPart = "user")
+	@ResponsePayload
+	public Response handleUser(@RequestPayload Element user) throws JDOMException {
+		Response response = new Response();
+		response.setName(userService.reverse(user.getChild("name").getValue()));
+		return response;
 	}
 }
