@@ -30,7 +30,7 @@
 	</wsdl:binding>
 	<wsdl:service name="UserResourceService">
 		<wsdl:port binding="tns:UserResourceSoap11" name="UserResourceSoap11">
-			<soap:address location="http://localhost:8080/spring-ws/user-service/" />
+			<soap:address location="http://localhost:8080/spring-ws/" />
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

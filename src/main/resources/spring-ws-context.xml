@@ -11,13 +11,16 @@
 	<sws:annotation-driven />
 
 	<!-- dynamic wsdl -->
+	<!--
 	<sws:dynamic-wsdl id="user" portTypeName="UserResource"
 		locationUri="/" targetNamespace="http://ru.slobevg/definitions">
-		<sws:xsd location="/WEB-INF/user-schema.xsd" />
+		<sws:xsd location="/WEB-INF/xsd/user.xsd" />
 	</sws:dynamic-wsdl>
-
+-->
+	
 	<!-- static wsdl -->
-	<!-- <bean id="user" class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
+	<bean id="user" class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
 		<constructor-arg value="WEB-INF/wsdl/user.wsdl" />
-	</bean> -->
+	</bean> 
+	
 </beans>
